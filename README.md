@@ -25,7 +25,10 @@
   EVENT BIND/LISTENERS
   
   ```javascript
-  document.addEventListener("onInit", function(){}, false); // Bind initialize event listeners
+  document.addEventListener("onInit", function(){
+      //Basically your event listener will goes here
+  }, false); 
+  // Bind initialize event listeners
   ```
   
   ```javascript
