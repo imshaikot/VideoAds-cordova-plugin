@@ -20,6 +20,8 @@
   window.plugins.MediaBrixCDVPlugin.showAd([successCallback], [failureCallback]);
   ```
   
+  `Success` and `Failure` callbacks are optional.
+  
   EVENT BIND/LISTENERS
   
   ```javascript
