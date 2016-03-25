@@ -10,10 +10,6 @@
     <engine name="cordova" version=">=3.4.0"/>
   </engines>
 
-  <!--
-  <asset src="www/hello.js" target="js/hello.js"/>
-  -->
-
   <!-- JavaScript interface -->
   <js-module  src="www/MediaBrixCDVPlugin.js" 
               name="MediaBrixCDVPlugin"
@@ -28,11 +24,6 @@
       <feature name="MediaBrixCDVPlugin">
         <param name="android-package" value="com.babysparks.plugins.MediaBrixCDVPlugin"/>
       </feature>
-      <!--
-      <feature name="MBmain">
-        <param name="android-package" value="com.babysparks.plugins.MBmain"/>
-      </feature>
-      -->
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
