@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="com.babysparks.videoads"
-        version="0.1.1">
+        id="com.babysparks.plugins"
+        version="0.9.1">
 
-  <name>Video Ads</name>
+  <name>MediaBrix Video Ads</name>
   <description>Video Ads for non pruchasers</description>
 
   <engines>
@@ -15,18 +15,18 @@
   -->
 
   <!-- JavaScript interface -->
-  <js-module  src="www/videoads.js" 
-              name="videoads"
-              target="js/videoads.js">
-    <clobbers target="videoads" />
+  <js-module  src="www/MediaBrixCDVPlugin.js" 
+              name="MediaBrixCDVPlugin"
+              target="js/MediaBrixPlugin.js">
+    <clobbers target="MediaBrixCDVPlugin" />
   </js-module>
 
   <!-- android -->
   <platform name="android">
 
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="VideoAds">
-        <param name="android-package" value="com.babysparks.plugins.VideoAds"/>
+      <feature name="MediaBrixCDVPlugin">
+        <param name="android-package" value="com.babysparks.plugins.MediaBrixCDVPlugin"/>
       </feature>
       <!--
       <feature name="MBmain">
@@ -37,14 +37,17 @@
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.INTERNET" />
-      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/> 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
       
       <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="19" />
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <activity android:name="com.babysparks.plugins.MBmain" android:exported="true"/>
       <activity
           android:name="com.mediabrix.android.service.AdViewActivity"
           android:configChanges="orientation|screenSize|keyboard"
@@ -55,37 +58,9 @@
       </service> 
     </config-file>
     
-    <source-file src="src/android/mediabrix/mediabrix-sdk-FBless.jar" target-dir="libs" framework="true" />
-    <source-file src="src/android/mediabrix/android-support-v4.jar" target-dir="libs" framework="true" />
-    <source-file src="src/android/VideoAds.java" target-dir="src/com/babysparks/plugins/" />
-    <source-file src="src/android/MBmain.java" target-dir="src/com/babysparks/plugins/" />
-    
-    <!--
-    <source-file src="src/android/mediabrix/android-support-v4.jar" target-dir="libs" />
-    <source-file src="src/android/mediabrix/MediaBrixPlugin.jar" target-dir="libs" />
-    
-    
-    <source-file src="src/android/mediabrix/mediabrix-sdk-FBless.jar" target-dir="src/com/mediabrix/android/" />
-    <source-file src="src/android/mediabrix/android-support-v4.jar" target-dir="src/com/mediabrix/android/" />
-    <source-file src="src/android/mediabrix/MediaBrixPlugin.jar" target-dir="src/com/mediabrix/android/" />
-    -->
-    <!--<source-file src="src/android/mediabrix/MediaBrixPlugin.jar" target-dir="src/com/mediabrix/android/" />-->
-  </platform>
-
-  <platform name="ios">
-    
-    <config-file target="config.xml" parent="/widget">
-      <feature name="Hello">
-        <param name="ios-package" value="HWPHello" />
-      </feature>
-    </config-file>
-
-    <header-file src="src/ios/HWPHello.h" target-dir="HelloPlugin"/>
-    <source-file src="src/ios/HWPHello.m" target-dir="HelloPlugin"/>
-  </platform>
-
-  <platform name="wp7">
-    <source-file src="src/wp7/Hello.cs"/>
+    <source-file src="android/libs/mediabrix-sdk-FBless.jar" target-dir="libs" framework="true" />
+    <source-file src="android/libs/android-support-v4.jar" target-dir="libs" framework="true" />
+    <source-file src="android/src/MediaBrixCDVPlugin.java" target-dir="src/com/babysparks/plugins/" />
   </platform>
 
 </plugin>

@@ -1,49 +1,56 @@
-# Cordova Hello World Plugin
+# MediaBrix Cordova Plugin v0.9.1
 
-Simple plugin that returns your string prefixed with hello.
+  This Plugin will work with Cordova 3.4.0 (Fully tested) to 4.0.0 (Untested).
 
-Greeting a user with "Hello, world" is something that could be done in JavaScript. This plugin provides a simple example demonstrating how Cordova plugins work.
-
-## Using
-Clone the plugin
-
-    $ git clone https://github.com/don/cordova-plugin-hello.git
-
-Create a new Cordova Project
-
-    $ cordova create hello com.example.helloapp Hello
+  
+  INSTALLATION
+  
+  `$ cordova platform android`
+  
+  `$ cordova plugin add https://github.com/babysparks/VideoAds`
+  
+  
+  API USECASE
+  
+  ```javascript
+  window.plugins.MediaBrixCDVPlugin.loadAd([successCallback], [failureCallback]);
+  ```
+  
+  ```javascript
+  window.plugins.MediaBrixCDVPlugin.showAd([successCallback], [failureCallback]);
+  ```
+  
+  `Success` and `Failure` callbacks are optional.
+  
+  EVENT BIND/LISTENERS
+  
+  ```javascript
+  document.addEventListener("onInit", function(){}, false); // Bind initialize event listeners
+  ```
+  
+  ```javascript
+  document.addEventListener("onAdReady", function(){}, false);
+  ```
+   
+  ```javascript
+  document.addEventListener("onAdUnavailable", function(){}, false);
+  ```
     
-Install the plugin
+  ```javascript
+  document.addEventListener("onAdClosed", function(){}, false);
+  ```
+  
+  ```javascript
+  document.addEventListener("onAdRewardConfirmation", function(){}, false);
+  ```
+  
+  
+  
+  
+ Please go through the `example/index.html` to understand more properly the use case. That's the html file from test app.
+  
+  
+  
 
-    $ cd hello
-    $ cordova plugin add ../cordova-plugin-hello
-    
-
-Edit `www/js/index.js` and add the following code inside `onDeviceReady`
-
-```js
-    var success = function(message) {
-        alert(message);
-    }
-
-    var failure = function() {
-        alert("Error calling Hello Plugin");
-    }
-
-    hello.greet("World", success, failure);
-```
-
-Install iOS or Android platform
-
-    cordova platform add ios
-    cordova platform add android
-    
-Run the code
-
-    cordova run 
-
-## More Info
-
-For more information on setting up Cordova see [the documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html#The%20Command-Line%20Interface)
-
-For more info on plugins see the [Plugin Development Guide](http://cordova.apache.org/docs/en/4.0.0/guide_hybrid_plugins_index.md.html#Plugin%20Development%20Guide)
+  Note: This plugin will initialize automatically on the cordova device ready event. You'll never need to initialize it manually.
+  In case you need to have initialize it manually you'll be requiring to modify `www/MediaBrixCDVPlugin.js`
