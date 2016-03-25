@@ -28,7 +28,7 @@
   document.addEventListener("onInit", function(){
       //Basically your event listener will goes here
   }, false); 
-  // Bind initialize event listeners
+  // Bind initialize/onStarted event listeners
   ```
   
   ```javascript
